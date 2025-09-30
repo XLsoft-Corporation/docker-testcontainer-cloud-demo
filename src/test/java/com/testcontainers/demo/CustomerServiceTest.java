@@ -11,22 +11,26 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 class CustomerServiceTest {
 
+  // PostgreSQL コンテナの定義。イメージは "postgres:16-alpine" を使用。
   static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
     "postgres:16-alpine"
   );
 
   CustomerService customerService;
 
+  // テストクラス全体の前に一度だけ実行されるセットアップメソッド。PostgreSQL コンテナを起動。
   @BeforeAll
   static void beforeAll() {
     postgres.start();
   }
 
+  // テストクラス全体の後に一度だけ実行されるクリーンアップメソッド。PostgreSQL コンテナを停止。
   @AfterAll
   static void afterAll() {
     postgres.stop();
   }
 
+  // 各テストケースの前に実行されるセットアップメソッド。DB への接続を初期化。
   @BeforeEach
   void setUp() {
     DBConnectionProvider connectionProvider = new DBConnectionProvider(
@@ -37,6 +41,7 @@ class CustomerServiceTest {
     customerService = new CustomerService(connectionProvider);
   }
 
+  // 実際のテストケース
   @Test
   void shouldGetCustomers() {
     customerService.createCustomer(new Customer(1L, "George"));
