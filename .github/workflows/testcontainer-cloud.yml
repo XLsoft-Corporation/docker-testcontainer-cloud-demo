@@ -17,8 +17,9 @@ jobs:
           java-version: '21'
           cache: 'maven'
 
-      - name: Confirm Docker socket (debug)
-        run: ls -la /var/run/docker.sock || true
-
-      - name: Run tests
+      - name: Setup Testcontainers Cloud Client
+        uses: atomicjar/testcontainers-cloud-setup-action@main
+        with:
+          token: ${{ secrets.TC_CLOUD_TOKEN }}
+      - name: Run example
         run: mvn -B -V test
