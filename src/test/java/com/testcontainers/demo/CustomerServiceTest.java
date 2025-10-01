@@ -61,7 +61,7 @@ public class CustomerServiceTest {
     customerService.createCustomer(new Customer(2L, "John"));
 
     List<Customer> customers = customerService.getAllCustomers();
-    assertEquals(3, customers.size());
+    assertEquals(2, customers.size());
   }
 
   // Docker クライアントの情報をログに出力するユーティリティメソッド
