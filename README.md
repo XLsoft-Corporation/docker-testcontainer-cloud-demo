@@ -34,6 +34,13 @@ Access Token が生成されるのでコピーして保存しておきます。
 GitHub のレポジトリで「Settings＞Secrets and variables＞Actions」で「Repository secrets」を作成し、`TC_CLOUD_TOKEN` の名前で先ほどの Access Token を登録します。
 
 
+## ソースコード準備
+
+[Getting started with Testcontainers for Java](https://testcontainers.com/guides/getting-started-with-testcontainers-for-java/) を元に `CustomerServiceTest.java` を用意しています。
+
+デモ用に標準出力にランタイムを出力しているので、[AtomicJar/testcontainers\-cloud\-java\-example](https://github.com/AtomicJar/testcontainers-cloud-java-example) から一部のコードを借りています。
+
+
 ## テスト実行
 
 テストコードに任意のモジュールを利用したコンテナーを用意し、接続などをテストします。
