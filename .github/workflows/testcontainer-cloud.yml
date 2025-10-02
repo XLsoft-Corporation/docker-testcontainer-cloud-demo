@@ -1,4 +1,4 @@
-name: CI - Maven + Testcontainers
+name: CI - Maven + Testcontainers Cloud
 
 on:
   push:
