@@ -108,11 +108,11 @@ GitHub Actions の yaml で以下のように  を呼び出し、テストを実
 
 ```yaml
 - name: Setup Testcontainers Cloud Client
-uses: atomicjar/testcontainers-cloud-setup-action@main
-with:
+  uses: atomicjar/testcontainers-cloud-setup-action@main
+  with:
     token: ${{ secrets.TC_CLOUD_TOKEN }}
 - name: Run example
-run: mvn -B -V test
+  run: mvn -B -V test
 ```
 
 以下のように結果が得られるはずです。
